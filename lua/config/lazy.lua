@@ -32,7 +32,8 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 -- 		prequire("config.vars")
 -- 	end,
 -- })
--- vim.g.mapleader = ","
+
+vim.g.mapleader = ","
 
 require("lazy").setup({
 	spec = {

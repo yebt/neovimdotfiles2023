@@ -98,6 +98,7 @@ function M.setup(opts)
     })
   else
     -- load them now so they affect the opened buffers
+    -- ..
     M.load("autocmds")
     M.load("keymaps")
   end
