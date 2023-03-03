@@ -14,24 +14,28 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 -- lazyrequires
--- function prequire(...)
--- 	local status, lib = pcall(require, ...)
--- 	if status then
--- 		return lib
--- 	end
--- 	vim.notify("Not load: " .. ... , vim.log.levels.WARN )
--- 	return nil
--- end
--- vim.api.nvim_create_autocmd("User", {
--- 	group = vim.api.nvim_create_augroup("LazyVim", { clear = true }),
--- 	pattern = "VeryLazy",
--- 	callback = function()
--- 		prequire("config.keymaps")
--- 		prequire("config.options")
--- 		prequire("config.autocmds")
--- 		prequire("config.vars")
--- 	end,
--- })
+function prequire(...)
+	local status, lib = pcall(require, ...)
+	if status then
+		return lib
+	end
+	vim.notify("Not load: " .. ..., vim.log.levels.WARN)
+	return nil
+end
+
+vim.api.nvim_create_autocmd("User", {
+	group = vim.api.nvim_create_augroup("LazyVim", { clear = true }),
+	pattern = "VeryLazy",
+	callback = function()
+		prequire("config.keymaps")
+		--prequire("config.options")
+		-- prequire("config.autocmds")
+		--prequire("config.vars")
+	end,
+})
+-- load options no lazy
+prequire("config.options")
+prequire("config.autocmds")
 
 vim.g.mapleader = ","
 
@@ -45,11 +49,11 @@ require("lazy").setup({
 		-- { import = "lazyvim.plugins.extras.lang.json" },
 		-- { import = "lazyvim.plugins.extras.ui.mini-animate" },
 		-- import/override with your plugins
-		{
-			dir = "~/.config/nvim/lconf/",
-			-- config = true
-			import = "lconf.plugins"
-		},
+		-- {
+		-- 	dir = "~/.config/nvim/lconf/",
+		-- 	-- config = true
+		-- 	import = "lconf.plugins"
+		-- },
 		{ import = "plugins" },
 	},
 	defaults = {

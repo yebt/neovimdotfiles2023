@@ -107,3 +107,13 @@ opt.sessionoptions = "blank,buffers,curdir,tabpages,winsize,terminal"
 --
 -- vim.g.netrw_localcopydircmd = "cp -r"
 -- --vim.cmd(" hi! link netrwMarkFile Search")
+
+local global = vim.g
+global.loaded_perl_provider = 0
+global.loaded_ruby_provider = 0
+
+-- netrw
+global.netrw_keepdir = 0
+global.netrw_winsize = 30
+global.netrw_banner = 1
+global.netrw_list_hide = "\\(^\\|\\s\\s\\)\\zs\\.\\S\\+"
