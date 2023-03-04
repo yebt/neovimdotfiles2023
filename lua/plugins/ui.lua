@@ -1,14 +1,48 @@
 return {
 	{
-		"vigoux/notifier.nvim",
-		event = "VeryLazy",
-		opts = {
-			notify = {
-				clear_time = 4000, -- Time in milliseconds before removing a vim.notify notification, 0 to make them sticky
-				min_level = vim.log.levels.INFO, -- Minimum log level to print the notification
+		"rcarriga/nvim-notify",
+		keys = {
+			{
+				"<leader>un",
+				function()
+					require("notify").dismiss({ silent = true, pending = true })
+				end,
+				desc = "Delete all Notifications",
 			},
 		},
+		opts = {
+			timeout = 3000,
+			max_height = function()
+				return math.floor(vim.o.lines * 0.75)
+			end,
+			max_width = function()
+				return math.floor(vim.o.columns * 0.75)
+			end,
+		},
+		init = function()
+			-- when noice is not enabled, install notify on VeryLazy
+			-- local Util = require("lazyvim.util")
+			if not (require("lazy.core.config").plugins["noice.nvim"] ~= nil) then
+				vim.api.nvim_create_autocmd("User", {
+					pattern = "VeryLazy",
+					callback = function()
+						vim.notify = require("notify")
+					end,
+				})
+			end
+		end,
 	},
+
+	-- {
+	-- 	"vigoux/notifier.nvim",
+	-- 	event = "VeryLazy",
+	-- 	opts = {
+	-- 		notify = {
+	-- 			clear_time = 4000, -- Time in milliseconds before removing a vim.notify notification, 0 to make them sticky
+	-- 			min_level = vim.log.levels.INFO, -- Minimum log level to print the notification
+	-- 		},
+	-- 	},
+	-- },
 	-- better vim.ui
 	{
 		"stevearc/dressing.nvim",
@@ -64,18 +98,15 @@ return {
 			})
 		end,
 		config = function(_, opts)
-			-- .setup(opts)
 			local mindentscope = require("mini.indentscope")
-
 			mindentscope.setup({
 				draw = {
-					delay = 100,
-					animation= mindentscope.gen_animation.none()
+					delay = 10,
+					animation = mindentscope.gen_animation.none(),
 				},
 				symbol = "│",
 				options = { try_as_border = true },
 			})
-			--require('mini.indentscope').gen_animation.none()
 		end,
 	},
 }

@@ -3,5 +3,8 @@
   "indent-blankline.nvim": { "branch": "master", "commit": "018bd04d80c9a73d399c1061fa0c3b14a7614399" },
   "lazy.nvim": { "branch": "main", "commit": "8d18ef44e769e98a8dc974ca85275de1d8cc7c04" },
   "mini.indentscope": { "branch": "main", "commit": "ff1e68b5c01426f9dfff3278dd1b10c9b5f000a1" },
-  "notifier.nvim": { "branch": "master", "commit": "afc9bf7ef8c31cfc716a2b849c34943a9788508b" }
+  "nvim-notify": { "branch": "master", "commit": "281e4d793c550c866bea3fb85d39de1f0188fb50" },
+  "persistence.nvim": { "branch": "main", "commit": "adcf6913693a0434665d162ee45a186230496f8a" },
+  "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
+  "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" }
 }
