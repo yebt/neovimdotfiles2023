@@ -34,7 +34,7 @@ opt.fillchars:append({
 	verthoriz = "╋",
 })
 --opt.list = false
-opt.list = true
+-- opt.list = true
 opt.showbreak = "↳"
 opt.breakindent = true -- better wrap indentation
 opt.breakindentopt = "shift:2,min:40,sbr"
@@ -70,7 +70,11 @@ opt.backup = false
 opt.writebackup = false
 opt.swapfile = false
 -- SPELL
+vim.g.spellfile_URL = "https://ftp.nluug.nl/vim/runtime/spell"
+vim.g.loaded_spellfile_plugin = 1
+
 opt.spelllang = "es,en"
+-- opt.spell = true
 -- TIMES
 opt.updatetime = 300
 opt.timeoutlen = 500
