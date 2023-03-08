@@ -101,6 +101,16 @@ create_aucmd({ "FileType" }, {
 		end, {})
 	end,
 })
+
+create_aucmd({ "FileType" }, {
+	pattern = { "sh", "bash" },
+	callback = function()
+		create_cmd("Shfmt", function()
+			vim.cmd(":!shfmt -l -w   %")
+		end, {})
+	end,
+})
+
 -- :%s/\\u\(\x\{4\}\)/\=nr2char(str2nr(submatch(1),16))/g
 
 ---------------------------------------------------------
