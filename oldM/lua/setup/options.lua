@@ -59,6 +59,9 @@ opt.splitbelow = true
 opt.splitright = true
 -- SEARCH
 opt.ignorecase = true
+opt.inccommand = "split"
+opt.hlsearch=true
+opt.incsearch=true
 -- STATUS
 opt.showcmd = true
 opt.showmode = true

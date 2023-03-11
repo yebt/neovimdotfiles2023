@@ -111,6 +111,15 @@ create_aucmd({ "FileType" }, {
 	end,
 })
 
+create_aucmd({ "FileType" }, {
+	pattern = { "json" },
+	callback = function()
+		create_cmd("JQ", function()
+			vim.cmd(":%!jq .")
+		end, {})
+	end,
+})
+
 -- :%s/\\u\(\x\{4\}\)/\=nr2char(str2nr(submatch(1),16))/g
 
 ---------------------------------------------------------
